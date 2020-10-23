@@ -1,24 +1,16 @@
 #include<stdio.h>
-#include<cs50.h>
-
-
-//char *array;
-
 
 int main(void)
 {
-
     char mat[26][26];
-    char input[40];
-    char output[40];
+    char input[5][8];
+    char output[5][8];
     char edcode[5][8];
 
 //decode array begin
 char shibaura[8]={'S','H','I','B','A','U','R','A'};
-for(int f=0;f<4;f++)
-{
-        for(int g=0;g<7;g++)
-        {
+for(int f=0;f<4;f++){
+        for(int g=0;g<7;g++){
             edcode[f][g]=shibaura[g];
         }
 }
@@ -26,7 +18,6 @@ for(int f=0;f<4;f++)
 
 //vigenere matrix begin
     for(int j=0;j<=25;j++){
-
         for(int k=0;k<=25;k++){
 
             int i=j+k;
@@ -40,16 +31,22 @@ for(int f=0;f<4;f++)
     printf("%c\n",mat[1][25]);
 //vigenere matrix over
 
-for(int c=0;c<4;d++)
-{
-   for(int d=0;d<7;d++)
-   {
-       
+for(int c=0;c<4;c++){
+   for(int d=0;d<8;d++){
+       input[c][d]=getchar();
+       output[c][d]=mat[input[c][d]-65][edcode[c][d]-65];
+       if(input[c][d]=='^')goto here;
+   }
+
+}
+here:
+
+for(int x=0;x<4;x++){
+   for(int y=0;y<8;y++){
+       printf("%c,",output[x][y]);
    }
 }
-
-
-//printf("%c,%s,%c/n",mat[2][25],input[4],output[0][1]);
+//printf("%c,%c,%c\n",mat[2][25],input[0][4],output[0][1]);
 }
 
 
