@@ -6,6 +6,7 @@ int main(void)
     char input[5][8];
     char output[5][8];
     char edcode[5][8];
+    int variable=0;
 
 //decode array begin
 char shibaura[8]={'S','H','I','B','A','U','R','A'};
@@ -36,6 +37,7 @@ for(int c=0;c<4;c++){
        input[c][d]=getchar();
        output[c][d]=mat[input[c][d]-65][edcode[c][d]-65];
        if(input[c][d]=='^')goto here;
+        variable=c*8+d;
    }
 
 }
@@ -43,10 +45,13 @@ here:
 
 for(int x=0;x<4;x++){
    for(int y=0;y<8;y++){
-       printf("%c,",output[x][y]);
+       printf("%c",output[x][y]);
+       if(x*8+y==variable)goto outside;
    }
 }
-//printf("%c,%c,%c\n",mat[2][25],input[0][4],output[0][1]);
+outside:
+
+printf("\n");
 }
 
 
