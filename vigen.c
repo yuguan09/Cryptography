@@ -8,14 +8,14 @@ int main(void)
     char edcode[5][8];
     int variable=0;
 
-//decode array begin
+//key array begin
 char shibaura[8]={'S','H','I','B','A','U','R','A'};
 for(int f=0;f<4;f++){
         for(int g=0;g<7;g++){
             edcode[f][g]=shibaura[g];
         }
 }
-//decode array over
+//key array over
 
 //vigenere matrix begin
     for(int j=0;j<=25;j++){
@@ -32,6 +32,7 @@ for(int f=0;f<4;f++){
     printf("%c\n",mat[1][25]);
 //vigenere matrix over
 
+//begin input array
 for(int c=0;c<4;c++){
    for(int d=0;d<8;d++){
        input[c][d]=getchar();
@@ -42,6 +43,7 @@ for(int c=0;c<4;c++){
 
 }
 here:
+//end input array
 
 for(int x=0;x<4;x++){
    for(int y=0;y<8;y++){
