@@ -9,7 +9,7 @@ int main(void)
     char input[N];
     memset(input,0,sizeof(input));
     int n=0;
-    char keynumber[8]={'S','H','I','B','A','U','R','A'};
+    char keynumber[8]={'S','H','I','B','A','U','R','A'};  //make key
 
     printf("input some char\n");
 
