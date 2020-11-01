@@ -38,9 +38,9 @@ int main(void)
         }
     }
     //printf("%d,%d\n",input[1][0],input[1][2]);     //just for test
-    
-    
-    
+
+
+
 //end input array
 
 
@@ -57,19 +57,17 @@ int main(void)
     printf("%d\n",middle);
 
     for(int round0=0;round0<4;round0++){
-        output[0][1][round0]=def_RHS(s_box[middle],pow(2,round0))%2;
+        output[0][1][round0]=def_RHS(s_box[middle-1],pow(2,round0))%2;
         output[0][1][round0]=output[0][1][round0]^input[0][round0];
     }
-
-
 
     for(int z=0;z<4;z++){
         printf("%d",output[0][1][z]);
     }
     //printf("%d,%d\n",output[0][0][2],output[0][1][1]);   //just for test
-    
-    
-    
+
+
+
 //end the first(No.0) round
 
 
@@ -77,13 +75,22 @@ int main(void)
 
 
 
-    for(int round=0;round<2;round++){
-        for(int a=0;a<4;a++){
-            input[1][a]=iutput[0][a];
-        }
+    for(int roundx=1;roundx<4;roundx++){
+
+        middle=0;//予めmiddleの値をリセットする
+
+        for(int r=0;r<4;r++){
+        output[roundx][0][r]=output[roundx-1][1][r];
+       middle=middle+(output[roundx-1][1][r]^key[roundx][r])*pow(2,3-r);
     }
-    
-    
-    
+    //printf("%d\n",middle);
+
+    for(int roundy=0;roundy<4;roundy++){
+        output[roundx][1][roundy]=def_RHS(s_box[middle-1],pow(2,roundy))%2;
+        output[roundx][1][roundy]=output[roundx][1][roundy]^input[0][roundy];
+    }
+    }
+
 //end the No.1~3 round
+
 }
