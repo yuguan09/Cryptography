@@ -7,7 +7,7 @@
 int main(void)
 {
     char input[N];
-    memset(input,0,sizeof(input));
+    memset(input,0,sizeof(input));//配列の値をリセットする
     int n=0;
     char keynumber[8]={'S','H','I','B','A','U','R','A'};  //make key
 
