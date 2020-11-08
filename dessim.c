@@ -19,9 +19,9 @@ int main(void)
 {
     int input[2][4];
     int key[4][4]={{1,1,1,1},{0,0,0,0},{1,0,0,0},{1,1,1,0}}; //key array
-    int output[round][2][4];
+    int output[round][2][4];                                 //左右の４桁は二次元配列として表す．
 
-    int s_box[16]={7,14,15,13,9,0,1,2,3,8,3,6,12,11,5,10};
+    int s_box[16]={7,14,15,13,9,0,1,2,3,8,3,6,12,11,5,10};//s box,s[0]=7
 
 
     printf("please input a char\n");
